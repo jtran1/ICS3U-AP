@@ -8,7 +8,7 @@ public class HangManTwo {
 		
 	public static void main(String[] args) {
 
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in); 
 		
 		System.out.println("Hello player 1, please enter your name!");
 		String playerOne = scanner.nextLine();
@@ -65,9 +65,21 @@ public class HangManTwo {
 						}
 						int endOne = 0;
 						int guesses = 7;
-						while (guesses > 0) {
+						while (guesses > -1) {
 							boolean invalidOne = true;
 							while (invalidOne) {
+								if (guesses == 0){
+									System.out.println("Your out of guesses, try to guess the phrase.");
+									String guessPhraseOnePlayerOne = scanner.nextLine().toUpperCase();
+									if (guessPhraseOnePlayerOne.equals(phraseOnePlayerOne)) {
+										playerTwoScore += (guesses + 1);
+										System.out.println("You've gained " + (guesses+ 1)+ " points.");
+										guesses = 0;
+									} else {
+										guesses--;
+										System.out.println("Incorrect. Lol you suck. You've gained " + (guesses + 1) + " points, LOSER.");
+									}break;
+								}
 								System.out.println(hiddenPhrase);
 								System.out.println("Press (1) to guess, press (2) to try to solve the phrase. You have "
 										+ guesses + " left.");
@@ -190,9 +202,21 @@ public class HangManTwo {
 					}
 					int endOne = 0;
 					int guesses = 7;
-					while (guesses > 0) {
+					while (guesses > -1) {
 						boolean invalidOne = true;
 						while (invalidOne) {
+							if (guesses == 0){
+								System.out.println("Your out of guesses, try to guess the phrase.");
+								String guessPhraseOnePlayerTwo = scanner.nextLine().toUpperCase();
+								if (guessPhraseOnePlayerTwo.equals(phraseOnePlayerTwo)) {
+									playerOneScore += (guesses + 1);
+									System.out.println("You've gained " + (guesses+ 1)+ " points.");
+									guesses = 0;
+								} else {
+									guesses--;
+									System.out.println("Incorrect. Lol you suck. You've gained " + (guesses + 1) + " points, LOSER.");
+								}break;
+							}
 							System.out.println(hiddenPhrase);
 							System.out.println("Press (1) to guess, press (2) to try to solve the phrase. You have "
 									+ guesses + " left.");
@@ -350,9 +374,21 @@ public class HangManTwo {
 					}
 					int endOne = 0;
 					int guesses = 7;
-					while (guesses > 0) {
+					while (guesses > -1) {
 						boolean invalidOne = true;
 						while (invalidOne) {
+							if (guesses == 0){
+								System.out.println("Your out of guesses, try to guess the phrase.");
+								String guessPhraseOnePlayerOne = scanner.nextLine().toUpperCase();
+								if (guessPhraseOnePlayerOne.equals(phraseOnePlayerOne)) {
+									playerTwoScore += (guesses + 1);
+									System.out.println("You've gained " + (guesses+ 1)+ " points.");
+									guesses = 0;
+								} else {
+									guesses--;
+									System.out.println("Incorrect. Lol you suck. You've gained " + (guesses + 1) + " points, LOSER.");
+								}break;
+							}
 							System.out.println(hiddenPhrase);
 							System.out.println("Press (1) to guess, press (2) to try to solve the phrase. You have "
 									+ guesses + " left.");
@@ -481,6 +517,18 @@ public class HangManTwo {
 				while (guesses > 0) {
 					boolean invalidOne = true;
 					while (invalidOne) {
+						if (guesses == 0){
+							System.out.println("Your out of guesses, try to guess the phrase.");
+							String guessPhraseOnePlayerTwo = scanner.nextLine().toUpperCase();
+							if (guessPhraseOnePlayerTwo.equals(phraseOnePlayerTwo)) {
+								playerOneScore += (guesses + 1);
+								System.out.println("You've gained " + (guesses+ 1)+ " points.");
+								guesses = 0;
+							} else {
+								guesses--;
+								System.out.println("Incorrect. Lol you suck. You've gained " + (guesses + 1) + " points, LOSER.");
+							}break;
+						}
 						System.out.println(hiddenPhrase);
 						System.out.println("Press (1) to guess, press (2) to try to solve the phrase. You have "
 								+ guesses + " left.");
