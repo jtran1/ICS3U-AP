@@ -10,7 +10,7 @@ public class ExampleOne {
 		int y = sum(x);
 		System.out.println(y);
 		
-			int z = 4;
+			int z = 2;
 				System.out.println(cube(z));
 				
 				//String goodString = getAlphaNumericString();
@@ -22,7 +22,7 @@ public class ExampleOne {
 	
 	public static int roll(int numSides){
 		if (numSides<3)
-			throw new IllegalArgumentException("Number of ides must be at least 3...");
+			throw new IllegalArgumentException("Number of sides must be at least 3...");
 		
 		return (int)(Math.random()*numSides) + 1;
 	}
