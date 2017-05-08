@@ -9,8 +9,11 @@ import java.util.Scanner;
 
 public class HorseRacing {
 
+	//global variables
 	static int[] playerBetHorse;
 	static int[] playerBetAmount;
+	
+	//plays game
 	public static void main(String[] args) throws InterruptedException {
 		introMessage();
 		String[] horses = getHorses();
@@ -36,7 +39,8 @@ public class HorseRacing {
 		System.out.println("Welcome to Horse Racing!");
 
 	}
-
+	
+// rewrites the player text file with new information
 	private static void updatePlayerData(String[] playerNames, int[] playerWallets) {
 		// TODO Auto-generated method stub
 		
@@ -77,6 +81,7 @@ public class HorseRacing {
 			return false;
 	}
 
+//Performs the race and displays the winner
 	private static void doRace(String[] horses, String[] playerNames, int[] playerWallets) throws InterruptedException {
 		// horsesInRace contains the index of the horses from the master horse
 		// array
@@ -89,6 +94,7 @@ public class HorseRacing {
 		payOutBets(playerBets, playerWallets, playerNames, winningHorse);
 	}
 
+	//Update player wallet variables to be used to rewrite the player text file in updatePlayerData method
 	private static void payOutBets(int[][] playerBets, int[] playerWallets, String[] playerNames, int winningHorse) {
 		// TODO Auto-generated method stub
 		for(int i=0; i<playerNames.length; i++){
@@ -103,6 +109,7 @@ public class HorseRacing {
 
 	}
 
+	//displays the race to the player
 	private static int startRace(int[] horsesInRace) throws InterruptedException {
 	int winningHorse = 0;
 	System.out.println("------------------------------------------------------------------------------------------------------------------------|");
@@ -248,7 +255,7 @@ public class HorseRacing {
 	}
 
 	private static int[][] getPlayerBets(String[] playerNames, int[] playerWallets, int[] horsesInRace, String[] horses) {
-		// Getting player bets
+		// Getting player bets and puts it in a 2d int array
 		Scanner scanner = new Scanner(System.in);
 		int[][] playerBets = new int[playerNames.length][playerNames.length];
 		for(int j = 0; j<8; j++){
@@ -268,7 +275,7 @@ public class HorseRacing {
 			}
 				else if(Integer.parseInt(x)<9&&Integer.parseInt(x)>0){
 					playerBets[i][0] = Integer.parseInt(x);
-					System.out.println("And how much would you like to bet " + playerNames[i]);
+					System.out.println("And how much would you like to bet " + playerNames[i] + "?");
 
 					boolean Valid = true;
 					while (Valid){
@@ -304,6 +311,7 @@ public class HorseRacing {
 		//}
 	}
 
+	//Put the index of horses from horses.dat into int array
 	private static int[] getHorsesInRace(String[] horses) {
 		// putting horses into the race from dat file
 		int[] horsesInRace = new int[8];
@@ -321,6 +329,7 @@ public class HorseRacing {
 		return horsesInRace;
 	}
 
+	//Places ints equal to the amount the player would like to bet into an int array
 	private static int[] getPlayersWallets(String [] playerNames) {
 		// TODO Auto-generated method stub
 		int[] playerWallet = new int[playerNames.length];
